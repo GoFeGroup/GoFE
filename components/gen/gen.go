@@ -8,7 +8,7 @@ import (
 )
 
 func GenerateHtml(tplStr string, obj any) template.HTML {
-	tpl := template.Must(template.New("button").Parse(tplStr))
+	tpl := template.Must(template.New("tpl").Parse(tplStr))
 
 	buffer := new(bytes.Buffer)
 	err := tpl.Execute(buffer, obj)

@@ -1,4 +1,4 @@
-package GoFE
+package components
 
 import (
 	"fmt"

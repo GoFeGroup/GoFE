@@ -5,7 +5,6 @@ import (
 	"html/template"
 
 	"github.com/GoFeGroup/GoFE/components/gen"
-
 	"github.com/GoFeGroup/GoFE/utils"
 )
 

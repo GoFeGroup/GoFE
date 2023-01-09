@@ -11,7 +11,6 @@ func GenerateHtml(tplStr string, obj any) template.HTML {
 	tpl := template.Must(template.New("tpl").Parse(tplStr))
 
 	buffer := new(bytes.Buffer)
-	err := tpl.Execute(buffer, obj)
-	utils.ThrowIfError(err)
+	utils.ThrowIfError(tpl.Execute(buffer, obj))
 	return template.HTML(buffer.String())
 }

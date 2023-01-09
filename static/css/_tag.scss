@@ -1,13 +1,27 @@
 
 .tag {
-  background: #74D574;
   min-width: 70px;
   text-align: center;
-  color: #fff;
   display: inline-block;
   padding: 0 10px;
   line-height: 1.8;
-  border: 1px solid;
+  border: none;
   border-radius: 4px;
   white-space: nowrap;
+  color: #000;
+
+  &.tag-success {
+    background: #74D574;
+    color: #fff;
+  }
+
+  &.tag-failed {
+    background: #909399;
+    color: #fff;
+  }
+
+  &.tag-warning {
+    background: #ffdddd;
+    color: #f63c3c;
+  }
 }

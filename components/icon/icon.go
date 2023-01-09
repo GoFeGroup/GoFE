@@ -1,9 +1,10 @@
 package icon
 
 import (
-	"bytes"
 	"fmt"
 	"html/template"
+
+	"github.com/GoFeGroup/GoFE/components/gen"
 
 	"github.com/GoFeGroup/GoFE/utils"
 )
@@ -31,10 +32,5 @@ func (i *Icon) template() string {
 }
 
 func (i *Icon) Generate() template.HTML {
-	tpl := template.Must(template.New("button").Parse(i.template()))
-
-	buffer := new(bytes.Buffer)
-	err := tpl.Execute(buffer, i)
-	utils.ThrowIfError(err)
-	return template.HTML(buffer.String())
+	return gen.GenerateHtml(i.template(), i)
 }

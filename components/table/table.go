@@ -1,9 +1,10 @@
 package table
 
 import (
-	"bytes"
 	"fmt"
 	"html/template"
+
+	"github.com/GoFeGroup/GoFE/components/gen"
 
 	"github.com/GoFeGroup/GoFE/utils"
 )
@@ -112,10 +113,5 @@ func (tab *Table) template() string {
 }
 
 func (tab *Table) Generate() template.HTML {
-	tpl := template.Must(template.New("table").Parse(tab.template()))
-
-	buffer := new(bytes.Buffer)
-	err := tpl.Execute(buffer, tab)
-	utils.ThrowIfError(err)
-	return template.HTML(buffer.String())
+	return gen.GenerateHtml(tab.template(), tab)
 }

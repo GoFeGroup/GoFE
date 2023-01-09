@@ -1,9 +1,10 @@
 package button
 
 import (
-	"bytes"
 	"fmt"
 	"html/template"
+
+	"github.com/GoFeGroup/GoFE/components/gen"
 
 	"github.com/GoFeGroup/GoFE/utils"
 )
@@ -38,10 +39,5 @@ func (btn *Button) template() string {
 }
 
 func (btn *Button) Generate() template.HTML {
-	tpl := template.Must(template.New("button").Parse(btn.template()))
-
-	buffer := new(bytes.Buffer)
-	err := tpl.Execute(buffer, btn)
-	utils.ThrowIfError(err)
-	return template.HTML(buffer.String())
+	return gen.GenerateHtml(btn.template(), btn)
 }

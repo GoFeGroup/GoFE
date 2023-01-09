@@ -62,11 +62,11 @@ html, body {
 .tab tr:nth-of-type(even) {
   background: #f3f3f3;
 }
-.tab tr:hover {
+.tab tr:not(:first-child):hover {
   background: #d2e1f7;
 }
 .tab tr:last-of-type {
-  border-bottom: 2px solid #448cf8;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
 }
 .tab tr th, .tab tr td {
   padding: 12px 15px;
@@ -75,8 +75,21 @@ html, body {
   text-align: center;
 }
 .tab tr th {
-  background: #1a73f7;
+  background: rgba(0, 0, 0, 0.02);
+  color: #000;
+}
+
+.tag {
+  background: #74D574;
+  min-width: 70px;
+  text-align: center;
   color: #fff;
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 1.8;
+  border: 1px solid;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 /*# sourceMappingURL=main.css.map */

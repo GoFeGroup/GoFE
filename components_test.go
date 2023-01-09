@@ -5,6 +5,8 @@ import (
 	"html/template"
 	"testing"
 
+	"github.com/GoFeGroup/GoFE/components/tag"
+
 	"github.com/GoFeGroup/GoFE/components/table"
 
 	"github.com/GoFeGroup/GoFE/components/button"
@@ -45,4 +47,8 @@ func TestNewButtonWithIcon(t *testing.T) {
 
 func TestNewButtonWithBackground(t *testing.T) {
 	fmt.Println(button.New().SetStyle("background:blue;color:red").Generate())
+}
+
+func TestNewTag(t *testing.T) {
+	fmt.Println(tag.New("成功").Generate())
 }

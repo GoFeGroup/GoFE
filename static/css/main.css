@@ -71,6 +71,9 @@ html, body {
 .tab tr th, .tab tr td {
   padding: 12px 15px;
 }
+.tab tr th:has(input[type=checkbox]), .tab tr td:has(input[type=checkbox]) {
+  text-align: center;
+}
 .tab tr th {
   background: #1a73f7;
   color: #fff;

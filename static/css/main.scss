@@ -77,6 +77,10 @@ html, body {
 
     th, td {
       padding: 12px 15px;
+
+      &:has(input[type='checkbox']) {
+        text-align: center;
+      }
     }
 
     th {

@@ -84,14 +84,14 @@ func (tab *Table) template() string {
 <table id="{{ $id }}" class="tab">
 {{- with .Header }}
 	<tr id="{{.Id}}">
-		{{- if $checkbox }} <th><input type="checkbox" id="checkbox-all-{{ $id }}"></th> {{- end }}
+		{{- if $checkbox -}} <th><input type="checkbox" id="checkbox-all-{{ $id }}"></th> {{- end }}
 		{{- range .Cell }} <th>{{ . }}</th> {{- end -}}
 	</tr>
 {{- end }}
 
 {{- range .Rows }}
 	<tr id="{{.Id}}" {{- if .DataId }} data-id="{{.DataId}}" {{- end -}} >
-		{{- if $checkbox }} <td><input type="checkbox"></td> {{- end }}
+		{{- if $checkbox -}} <td><input type="checkbox"></td> {{- end }}
 		{{- range .Cell }} <td>{{.}}</td> {{- end -}}
 	</tr>
 {{- end }}

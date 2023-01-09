@@ -1,4 +1,4 @@
-package components
+package button
 
 import (
 	"bytes"
@@ -15,7 +15,7 @@ type Button struct {
 	Style  template.CSS
 }
 
-func NewButton() *Button {
+func New() *Button {
 	return &Button{
 		Id:     fmt.Sprintf("btn-%s", utils.RandomString(8)),
 		Title:  "Button",

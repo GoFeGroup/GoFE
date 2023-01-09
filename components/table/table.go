@@ -1,4 +1,4 @@
-package components
+package table
 
 import (
 	"bytes"
@@ -8,54 +8,54 @@ import (
 	"github.com/GoFeGroup/GoFE/utils"
 )
 
-type TableCell any
+type Cell any
 
-type TableHeader struct {
+type Header struct {
 	Id   string
-	Cell []TableCell
+	Cell []Cell
 }
 
-func NewTableHeader() *TableHeader {
-	return &TableHeader{
+func NewHeader() *Header {
+	return &Header{
 		Id: fmt.Sprintf("th-%s", utils.RandomString(8)),
 	}
 }
 
-func (th *TableHeader) AddCell(cell TableCell) *TableHeader {
+func (th *Header) AddCell(cell Cell) *Header {
 	th.Cell = append(th.Cell, cell)
 	return th
 }
 
-type TableRow struct {
+type Row struct {
 	Id     string
 	DataId string
-	Cell   []TableCell
+	Cell   []Cell
 }
 
-func NewTableRow() *TableRow {
-	return &TableRow{
+func NewRow() *Row {
+	return &Row{
 		Id: fmt.Sprintf("tr-%s", utils.RandomString(8)),
 	}
 }
 
-func (tr *TableRow) SetDataId(id string) *TableRow {
+func (tr *Row) SetDataId(id string) *Row {
 	tr.DataId = id
 	return tr
 }
 
-func (tr *TableRow) AddCell(cell TableCell) *TableRow {
+func (tr *Row) AddCell(cell Cell) *Row {
 	tr.Cell = append(tr.Cell, cell)
 	return tr
 }
 
 type Table struct {
 	Id       string
-	Header   *TableHeader
-	Rows     []*TableRow
+	Header   *Header
+	Rows     []*Row
 	Checkbox bool
 }
 
-func NewTable() *Table {
+func New() *Table {
 	return &Table{
 		Id: fmt.Sprintf("tab-%s", utils.RandomString(8)),
 	}
@@ -66,12 +66,12 @@ func (tab *Table) SetCheckbox(checkbox bool) *Table {
 	return tab
 }
 
-func (tab *Table) AddHeader(header *TableHeader) *Table {
+func (tab *Table) AddHeader(header *Header) *Table {
 	tab.Header = header
 	return tab
 }
 
-func (tab *Table) AddRow(row *TableRow) *Table {
+func (tab *Table) AddRow(row *Row) *Table {
 	tab.Rows = append(tab.Rows, row)
 	return tab
 }

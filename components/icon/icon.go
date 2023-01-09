@@ -14,7 +14,7 @@ type Icon struct {
 	Style template.CSS
 }
 
-func NewIcon(class string) *Icon {
+func New(class string) *Icon {
 	return &Icon{
 		Id:    fmt.Sprintf("i-%s", utils.RandomString(8)),
 		Class: class,

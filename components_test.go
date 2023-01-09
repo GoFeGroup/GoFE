@@ -2,15 +2,13 @@ package GoFE
 
 import (
 	"fmt"
+	"html/template"
 	"testing"
 
-	"github.com/GoFeGroup/GoFE/components"
-	"github.com/GoFeGroup/GoFE/static"
-)
+	"github.com/GoFeGroup/GoFE/components/icon"
 
-func TestGenerateStyles(t *testing.T) {
-	fmt.Println(static.GenerateStyles())
-}
+	"github.com/GoFeGroup/GoFE/components"
+)
 
 func TestNewButton(t *testing.T) {
 	fmt.Println(components.NewButton().SetTitle("Press").Generate())
@@ -26,4 +24,23 @@ func TestNewTable(t *testing.T) {
 	table := components.NewTable().SetCheckbox(true).
 		AddHeader(header).AddRow(row1).AddRow(row2).AddRow(row3).AddRow(row4)
 	fmt.Println(table.Generate())
+}
+
+func TestNewIcon(t *testing.T) {
+	fmt.Println(icon.NewIcon(icon.Home).Generate())
+	fmt.Println(icon.NewIcon(icon.User).Generate())
+	fmt.Println(icon.NewIcon(icon.Data).Generate())
+	fmt.Println(icon.NewIcon(icon.Message).Generate())
+	fmt.Println(icon.NewIcon(icon.Setting).Generate())
+}
+
+func TestNewButtonWithIcon(t *testing.T) {
+	i := icon.NewIcon(icon.Refresh).SetStyle("color:red").Generate()
+	btn := components.NewButton().SetTitle(
+		template.HTML(fmt.Sprintf("%v%v", i, "刷新"))).Generate()
+	fmt.Println(btn)
+}
+
+func TestNewButtonWithBackground(t *testing.T) {
+	fmt.Println(components.NewButton().SetStyle("background:blue;color:red").Generate())
 }

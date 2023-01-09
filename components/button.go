@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/GoFeGroup/GoFE/static"
 	"github.com/GoFeGroup/GoFE/utils"
 )
 
 type Button struct {
 	Id     string
-	Title  string
+	Title  template.HTML
 	Action template.JS
+	Style  template.CSS
 }
 
 func NewButton() *Button {
@@ -23,13 +23,18 @@ func NewButton() *Button {
 	}
 }
 
-func (btn *Button) SetTitle(title string) *Button {
+func (btn *Button) SetTitle(title template.HTML) *Button {
 	btn.Title = title
 	return btn
 }
 
+func (btn *Button) SetStyle(style template.CSS) *Button {
+	btn.Style = style
+	return btn
+}
+
 func (btn *Button) template() string {
-	return `<button id="{{.Id}}" class="btn">{{.Title}}</button>`
+	return `<button id="{{.Id}}" class="btn" {{- with .Style }} style="{{.}}" {{- end }}>{{.Title}}</button>`
 }
 
 func (btn *Button) Generate() template.HTML {
@@ -39,27 +44,4 @@ func (btn *Button) Generate() template.HTML {
 	err := tpl.Execute(buffer, btn)
 	utils.ThrowIfError(err)
 	return template.HTML(buffer.String())
-}
-
-var defaultButtonStyle = template.CSS(`
-.btn {
-    position: relative;
-    background: #2e82ff;
-    color: #fff;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    min-height: 26px;
-    min-width: 48px;
-    font-size: 14px;
-    padding: 0 8px;
-}
-
-.btn:focus,
-.btn:hover {
-    opacity: 0.8;
-    transition: 0.3s;
-}`)
-
-func init() {
-	static.RegisterStyle(defaultButtonStyle)
 }

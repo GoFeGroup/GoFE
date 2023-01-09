@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/GoFeGroup/GoFE/static"
 	"github.com/GoFeGroup/GoFE/utils"
 )
 
@@ -119,46 +118,4 @@ func (tab *Table) Generate() template.HTML {
 	err := tpl.Execute(buffer, tab)
 	utils.ThrowIfError(err)
 	return template.HTML(buffer.String())
-}
-
-var defaultTableStyle = template.CSS(`
-.tab {
-  position: relative;
-  background: #eee;
-  border-collapse: collapse;
-  padding: 5px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.tab tr th {
-  background: #1a73f7;
-  color: #fff;
-  text-align: left;
-}
-
-.tab th,
-.tab td {
-  padding: 12px 15px;
-}
-
-.tab tr {
-  border-bottom: 1px solid #ddd;
-}
-
-.tab tr:nth-of-type(even) {
-  background: #f3f3f3;
-}
-
-.tab tr:hover {
-  background: #d2e1f7;
-}
-
-.tab tr:last-of-type {
-  border-bottom: 2px solid #448cf8;
-}`)
-
-func init() {
-	static.RegisterStyle(defaultTableStyle)
 }

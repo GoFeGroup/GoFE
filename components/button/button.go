@@ -11,6 +11,7 @@ import (
 type Button struct {
 	Id     string
 	Title  template.HTML
+	Type   template.HTML
 	Action template.JS
 	Style  template.CSS
 }
@@ -21,6 +22,19 @@ func New() *Button {
 		Title:  "Button",
 		Action: "",
 	}
+}
+
+var typeMap = map[int]string{
+	Primary: "btn-primary",
+	Success: "btn-success",
+	Info:    "btn-info",
+	Warning: "btn-warning",
+	Danger:  "btn-danger",
+}
+
+func (btn *Button) SetType(typ int) *Button {
+	btn.Type = template.HTML(typeMap[typ])
+	return btn
 }
 
 func (btn *Button) SetTitle(title template.HTML) *Button {
@@ -34,7 +48,7 @@ func (btn *Button) SetStyle(style template.CSS) *Button {
 }
 
 func (btn *Button) template() string {
-	return `<button id="{{.Id}}" class="btn" {{- with .Style }} style="{{.}}" {{- end }}>{{.Title}}</button>`
+	return `<button id="{{.Id}}" class="btn {{- with .Type }} {{ .}}{{end}}" {{- with .Style }} style="{{.}}" {{- end }}>{{.Title}}</button>`
 }
 
 func (btn *Button) Generate() template.HTML {

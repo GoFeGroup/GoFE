@@ -16,6 +16,11 @@ import (
 
 func TestNewButton(t *testing.T) {
 	fmt.Println(button.New().SetTitle("Press").Generate())
+	fmt.Println(button.New().SetTitle("Press").SetType(button.Primary).Generate())
+	fmt.Println(button.New().SetTitle("Press").SetType(button.Success).Generate())
+	fmt.Println(button.New().SetTitle("Press").SetType(button.Info).Generate())
+	fmt.Println(button.New().SetTitle("Press").SetType(button.Warning).Generate())
+	fmt.Println(button.New().SetTitle("Press").SetType(button.Danger).Generate())
 }
 
 func TestNewTable(t *testing.T) {
@@ -51,7 +56,7 @@ func TestNewButtonWithBackground(t *testing.T) {
 
 func TestNewTag(t *testing.T) {
 	fmt.Println(tag.New("Tag").Generate())
-	fmt.Println(tag.New("成功").SetState(tag.Success).Generate())
-	fmt.Println(tag.New("警告").SetState(tag.Warning).Generate())
-	fmt.Println(tag.New("失败").SetState(tag.Failed).Generate())
+	fmt.Println(tag.New("成功").SetType(tag.Success).Generate())
+	fmt.Println(tag.New("警告").SetType(tag.Warning).Generate())
+	fmt.Println(tag.New("失败").SetType(tag.Info).Generate())
 }

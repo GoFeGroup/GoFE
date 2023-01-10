@@ -12,7 +12,7 @@ type Tag struct {
 	Id    string
 	Title template.HTML
 	Style template.CSS
-	State template.HTML
+	Type  template.HTML
 }
 
 func New(title template.HTML) *Tag {
@@ -22,14 +22,14 @@ func New(title template.HTML) *Tag {
 	}
 }
 
-var stateMap = map[int]string{
+var typeMap = map[int]string{
 	Success: "tag-success",
-	Failed:  "tag-failed",
+	Info:    "tag-info",
 	Warning: "tag-warning",
 }
 
-func (t *Tag) SetState(state int) *Tag {
-	t.State = template.HTML(stateMap[state])
+func (t *Tag) SetType(typ int) *Tag {
+	t.Type = template.HTML(typeMap[typ])
 	return t
 }
 
@@ -39,7 +39,7 @@ func (t *Tag) SetStyle(style template.CSS) *Tag {
 }
 
 func (t *Tag) template() string {
-	return `<span id="{{.Id}}" class="tag {{- with .State }} {{ .}}{{end}}" {{- with .Style }} style="{{.}}" {{- end }}>{{.Title}}</span>`
+	return `<span id="{{.Id}}" class="tag {{- with .Type }} {{ .}}{{end}}" {{- with .Style }} style="{{.}}" {{- end }}>{{.Title}}</span>`
 }
 
 func (t *Tag) Generate() template.HTML {

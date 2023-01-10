@@ -1,8 +1,13 @@
 /* Button */
 .btn {
-  background: #2e82ff;
-  color: #fff;
-  border: 1px solid transparent;
+  --btn-color: #606266;
+  --btn-background: #fff;
+  --btn-border-color: #dcdfe6;
+
+  //background: #2e82ff;
+  background: var(--btn-background);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border-color);
   border-radius: 4px;
   line-height: 1.2;
   min-width: 48px;
@@ -12,6 +17,18 @@
   outline: none;
   transition: opacity 0.2s;
   position: relative;
+
+  $btnColor: #409eff, #67c23a, #909399, #e6a23c, #f56c6c;
+  $btnType: primary, success, info, warning, danger;
+  @for $i from 1 through length($btnType) {
+    $color: nth($btnColor, $i);
+    $typ: nth($btnType, $i);
+    &.btn-#{$typ} {
+      --btn-color: #fff;
+      --btn-background: #{$color};
+      --btn-border-color: #{$color};
+    }
+  }
 
   &::before {
     position: absolute;

@@ -11,9 +11,12 @@ html, body {
 
 /* Button */
 .btn {
-  background: #2e82ff;
-  color: #fff;
-  border: 1px solid transparent;
+  --btn-color: #606266;
+  --btn-background: #fff;
+  --btn-border-color: #dcdfe6;
+  background: var(--btn-background);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border-color);
   border-radius: 4px;
   line-height: 1.2;
   min-width: 48px;
@@ -23,6 +26,31 @@ html, body {
   outline: none;
   transition: opacity 0.2s;
   position: relative;
+}
+.btn.btn-primary {
+  --btn-color: #fff;
+  --btn-background: #409eff;
+  --btn-border-color: #409eff;
+}
+.btn.btn-success {
+  --btn-color: #fff;
+  --btn-background: #67c23a;
+  --btn-border-color: #67c23a;
+}
+.btn.btn-info {
+  --btn-color: #fff;
+  --btn-background: #909399;
+  --btn-border-color: #909399;
+}
+.btn.btn-warning {
+  --btn-color: #fff;
+  --btn-background: #e6a23c;
+  --btn-border-color: #e6a23c;
+}
+.btn.btn-danger {
+  --btn-color: #fff;
+  --btn-background: #f56c6c;
+  --btn-border-color: #f56c6c;
 }
 .btn::before {
   position: absolute;
@@ -94,7 +122,7 @@ html, body {
   background: #74D574;
   color: #fff;
 }
-.tag.tag-failed {
+.tag.tag-info {
   background: #909399;
   color: #fff;
 }

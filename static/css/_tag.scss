@@ -1,27 +1,28 @@
 /* Tag */
 .tag {
+  --tag-color: #606266;
+  --tag-background: #fff;
   min-width: 70px;
   text-align: center;
   display: inline-block;
   padding: 0 10px;
   line-height: 1.8;
   border: none;
+  font-size: 12px;
   border-radius: 4px;
   white-space: nowrap;
-  color: #000;
+  color: var(--tag-color);
+  background: var(--tag-background);
 
-  &.tag-success {
-    background: #74D574;
-    color: #fff;
-  }
-
-  &.tag-info {
-    background: #909399;
-    color: #fff;
-  }
-
-  &.tag-warning {
-    background: #ffdddd;
-    color: #f63c3c;
+  $tagColor: var(--primary-color), var(--success-color),
+    var(--info-color), var(--warning-color), var(--danger-color);
+  $tagType: primary, success, info, warning, danger;
+  @for $i from 1 through length($tagType) {
+    $color: nth($tagColor, $i);
+    $typ: nth($tagType, $i);
+    &.tag-#{$typ} {
+      --tag-color: #fff;
+      --tag-background: #{$color};
+    }
   }
 }

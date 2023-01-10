@@ -18,7 +18,8 @@
   transition: opacity 0.2s;
   position: relative;
 
-  $btnColor: #409eff, #67c23a, #909399, #e6a23c, #f56c6c;
+  $btnColor: var(--primary-color), var(--success-color),
+    var(--info-color), var(--warning-color), var(--danger-color);
   $btnType: primary, success, info, warning, danger;
   @for $i from 1 through length($btnType) {
     $color: nth($btnColor, $i);

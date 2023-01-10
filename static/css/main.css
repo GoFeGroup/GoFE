@@ -9,6 +9,14 @@ html, body {
   height: 100%;
 }
 
+:root {
+  --primary-color: #409EFF;
+  --success-color: #67C23A;
+  --info-color: #909399;
+  --warning-color: #E6A23C;
+  --danger-color:#F56C6C;
+}
+
 /* Button */
 .btn {
   --btn-color: #606266;
@@ -29,28 +37,28 @@ html, body {
 }
 .btn.btn-primary {
   --btn-color: #fff;
-  --btn-background: #409eff;
-  --btn-border-color: #409eff;
+  --btn-background: var(--primary-color);
+  --btn-border-color: var(--primary-color);
 }
 .btn.btn-success {
   --btn-color: #fff;
-  --btn-background: #67c23a;
-  --btn-border-color: #67c23a;
+  --btn-background: var(--success-color);
+  --btn-border-color: var(--success-color);
 }
 .btn.btn-info {
   --btn-color: #fff;
-  --btn-background: #909399;
-  --btn-border-color: #909399;
+  --btn-background: var(--info-color);
+  --btn-border-color: var(--info-color);
 }
 .btn.btn-warning {
   --btn-color: #fff;
-  --btn-background: #e6a23c;
-  --btn-border-color: #e6a23c;
+  --btn-background: var(--warning-color);
+  --btn-border-color: var(--warning-color);
 }
 .btn.btn-danger {
   --btn-color: #fff;
-  --btn-background: #f56c6c;
-  --btn-border-color: #f56c6c;
+  --btn-background: var(--danger-color);
+  --btn-border-color: var(--danger-color);
 }
 .btn::before {
   position: absolute;
@@ -109,27 +117,39 @@ html, body {
 
 /* Tag */
 .tag {
+  --tag-color: #606266;
+  --tag-background: #fff;
   min-width: 70px;
   text-align: center;
   display: inline-block;
   padding: 0 10px;
   line-height: 1.8;
   border: none;
+  font-size: 12px;
   border-radius: 4px;
   white-space: nowrap;
-  color: #000;
+  color: var(--tag-color);
+  background: var(--tag-background);
+}
+.tag.tag-primary {
+  --tag-color: #fff;
+  --tag-background: var(--primary-color);
 }
 .tag.tag-success {
-  background: #74D574;
-  color: #fff;
+  --tag-color: #fff;
+  --tag-background: var(--success-color);
 }
 .tag.tag-info {
-  background: #909399;
-  color: #fff;
+  --tag-color: #fff;
+  --tag-background: var(--info-color);
 }
 .tag.tag-warning {
-  background: #ffdddd;
-  color: #f63c3c;
+  --tag-color: #fff;
+  --tag-background: var(--warning-color);
+}
+.tag.tag-danger {
+  --tag-color: #fff;
+  --tag-background: var(--danger-color);
 }
 
 /*# sourceMappingURL=main.css.map */

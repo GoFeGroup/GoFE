@@ -23,9 +23,11 @@ func New(title template.HTML) *Tag {
 }
 
 var typeMap = map[int]string{
+	Primary: "tag-primary",
 	Success: "tag-success",
 	Info:    "tag-info",
 	Warning: "tag-warning",
+	Danger:  "tag-danger",
 }
 
 func (t *Tag) SetType(typ int) *Tag {

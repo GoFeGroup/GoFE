@@ -1,7 +1,9 @@
 package tag
 
 const (
-	Success = iota + 1
+	Primary = iota + 1
+	Success
 	Info
 	Warning
+	Danger
 )

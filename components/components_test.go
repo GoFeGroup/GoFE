@@ -56,7 +56,9 @@ func TestNewButtonWithBackground(t *testing.T) {
 
 func TestNewTag(t *testing.T) {
 	fmt.Println(tag.New("Tag").Generate())
+	fmt.Println(tag.New("失败").SetType(tag.Primary).Generate())
 	fmt.Println(tag.New("成功").SetType(tag.Success).Generate())
 	fmt.Println(tag.New("警告").SetType(tag.Warning).Generate())
 	fmt.Println(tag.New("失败").SetType(tag.Info).Generate())
+	fmt.Println(tag.New("失败").SetType(tag.Danger).Generate())
 }

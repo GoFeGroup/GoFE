@@ -152,4 +152,12 @@ html, body {
   --tag-background: var(--danger-color);
 }
 
+.gfe-logo {
+  width: 100%;
+}
+
+.gfe-menu {
+  width: 220px;
+}
+
 /*# sourceMappingURL=main.css.map */

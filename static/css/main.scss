@@ -8,7 +8,9 @@ html, body {
   width: 100%;
   height: 100%;
 }
-@import "root.scss";
-@import "button.scss";
-@import "table.scss";
-@import "tag.scss";
+@import "root";
+@import "button";
+@import "table";
+@import "tag";
+@import "logo";
+@import "menu";

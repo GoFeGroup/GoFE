@@ -35,16 +35,26 @@ func NewLogo(image string, images ...string) *Logo {
 func (logo *Logo) template() string {
 	return `<style>
 #{{.Id}} {
-{{ if .LightMode -}}
- --logo-image: url("{{.ImageInLight}}");
-{{ else -}}
  --logo-image: url("{{.Image}}");
-{{ end -}}
  --logo-sm-image: url("{{.ImageInCollapse}}");
 }
+${{.Id}}.light {
+ --logo-image: url("{{.ImageInLight}}");
+}
 </style>
-<div id="{{.Id}}" class="gfe-logo"></div>
+<div id="{{.Id}}" class="gfe-logo {{- if .LightMode }} light {{- end }}"></div>
 `
+}
+
+func (logo *Logo) SetLightMode(light bool) *Logo {
+	logo.LightMode = light
+	return logo
+}
+
+func (logo *Logo) SetLightModeJS(light bool) template.JS {
+	return utils.If(light,
+		template.JS(fmt.Sprintf(`${"#%v"}.addClass("light");`, logo.Id)),
+		template.JS(fmt.Sprintf(`${"#%v"}.removeClass("light");`, logo.Id)))
 }
 
 func (logo *Logo) Generate() template.HTML {

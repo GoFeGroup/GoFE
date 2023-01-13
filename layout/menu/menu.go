@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"html/template"
 
+	"github.com/GoFeGroup/GoFE/components/gen"
+
 	"github.com/GoFeGroup/GoFE/layout/router"
 	"github.com/GoFeGroup/GoFE/utils"
 )
@@ -20,6 +22,16 @@ func NewMenu(routers []router.Router) *Menu {
 	}
 }
 
+func (menu *Menu) layout() string {
+	return `
+<ul class="gfe-menu">
+{{- range .Routers }}
+	<li> {{.Path}} </li>
+{{- end }}
+</ul>
+`
+}
+
 func (menu *Menu) Generate() template.HTML {
-	return ``
+	return gen.GenerateHtml(menu.layout(), menu)
 }

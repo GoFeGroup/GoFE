@@ -17,7 +17,7 @@ import (
 type Admin struct {
 	Id      string
 	Logo    *logo.Logo
-	Menu    menu.Menu
+	Menu    *menu.Menu
 	Header  header.Header
 	Content content.Content
 	Footer  footer.Footer
@@ -31,6 +31,11 @@ func NewAdmin() *Admin {
 
 func (adm *Admin) SetLogo(logo *logo.Logo) *Admin {
 	adm.Logo = logo
+	return adm
+}
+
+func (adm *Admin) SetMenu(menu *menu.Menu) *Admin {
+	adm.Menu = menu
 	return adm
 }
 
